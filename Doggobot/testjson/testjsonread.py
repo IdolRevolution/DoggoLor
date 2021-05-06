@@ -1,7 +1,7 @@
 import json
 
 
-arquivojson = open("cardsj.json", 'r', encoding='utf-8')
+arquivojson = open('cardsj.json', 'r', encoding='utf-8')
 nome = json.load(arquivojson)
 arquivojson.close()
 
