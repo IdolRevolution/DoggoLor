@@ -1,56 +1,57 @@
 import json
 
 
-class Carta():
-    def __init__(self, nome_carta):
-        self.nome_carta = nome_carta
-        arquivojson = open('set1-pt_br.json', 'r', encoding='utf-8')
-        cardlist = json.load(arquivojson)
-        arquivojson.close()
+arquivojson = open('set1-pt_br.json', 'r', encoding='utf-8')
+cardlist = json.load(arquivojson)
+arquivojson.close()
 
 
-        for cardname in cardlist:
-            cardname = (cardname['name'])
-            if cardname == self.nome_carta:
-                carta_buscada = cardname
-                if carta_buscada == True:
-                    carta_buscada = self.nome_carta
+lista = [{"pinto":"Renan", "rola":"Paulo"}, {"pinto":"Guto", "rola":"Fernando"}]
 
-    def __str__(self):
-        return self.link
-        
-    @property
-    def codigocarta(self):
-        arquivojson = open('set1-pt_br.json', 'r', encoding='utf-8')
-        cardlist = json.load(arquivojson)
-        arquivojson.close()
-        
+for dicionario in lista:
+    nome = dicionario["pinto"]
+    if nome in dicionario:
+        print(nome)
 
-        for codigocarta in self.nome_carta:
-            codigocarta = (codigocarta["cardCode"])
-            return codigocarta
-
-    @property        
-    def setcarta(self):
-        arquivojson = open('set1-pt_br.json', 'r', encoding='utf-8')
-        cardlist = json.load(arquivojson)
-        arquivojson.close()
+    name = name["rola"]
 
 
-        for setcarta in self.nome_carta:
-            setcarta = (setcarta["set"])
-            return setcarta
 
-    def link(self):
-        arquivojson = open('set1-pt_br.json', 'r', encoding='utf-8')
-        cardlist = json.load(arquivojson)
-        arquivojson.close()
-        setcarta = self.setcarta()
-        codigocarta = self.codigocarta()
-
-        return (f'http://dd.b.pvp.net/latest/{setcarta.lower()}/pt_br/img/cards/{codigocarta}.png')
+    if name in :
+        for nome in lista:
+            nome = nome["pinto"]
+            print(name, nome)
+    else:
+        print("Erro")
 
 
-teste = Carta("Garen")
-teste.link()
+
+def buscacarta():
+    for cardname in cardlist:
+        cardname = cardname["name"]
+        return cardname
+
+
+
+
+def codigocarta():
+    carta = buscacarta()
+    for codigocarta in carta:
+        codigocarta = codigocarta["cardCode"]
+        print(codigocarta)
+
+         
+def setcarta():
+    carta = buscacarta()
+    for setcarta in carta:
+        setcarta = setcarta["set"]
+        print(setcarta.lower())
+
+def link():
+
+    print(f'http://dd.b.pvp.net/latest/{setcarta()}/pt_br/img/cards/{codigocarta()}.png')
+
+link()
+
+
 
