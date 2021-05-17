@@ -21,10 +21,20 @@ async def ola(ctx):
 async def carta(ctx, carta):
     carta = (carta.capitalize())
     for dicionario in cardlist:
-        if carta in dicionario.values():
+        if carta in dicionario["name"]:
             assets = dicionario["assets"]
             for item in assets:
                 item = item["gameAbsolutePath"]
+                await ctx.send(item)
+
+@client.command()
+async def arte(ctx, arte):
+    arte = (arte.capitalize())
+    for dicionario in cardlist:
+        if arte in dicionario["name"]:
+            assets = dicionario["assets"]
+            for item in assets:
+                item = item["fullAbsolutePath"]
                 await ctx.send(item)
 
 
