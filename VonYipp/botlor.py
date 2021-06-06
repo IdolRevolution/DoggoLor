@@ -5,7 +5,7 @@ import json
 
 client = commands.Bot(command_prefix = ">", case_insensitive = True)
 
-arquivojson = open('finaljson.json', 'r', encoding='utf-8')
+arquivojson = open('Cards.json', 'r', encoding='utf-8')
 cardlist = json.load(arquivojson)
 arquivojson.close()
 
@@ -23,7 +23,7 @@ async def carta(ctx, carta):
     for dicionario in cardlist:
         if carta in dicionario["name"]:
             assets = dicionario["assets"]
-            for item in assets:
+            for item in zip(range(3), assets):
                 item = item["gameAbsolutePath"]
                 await ctx.send(item)
 
