@@ -4,6 +4,7 @@ from decouple import config
 import json
 import os
 
+
 client = commands.Bot(command_prefix = ">", case_insensitive = True)
 
 arquivojson = open('Cards.json', 'r', encoding='utf-8')
@@ -24,7 +25,7 @@ async def carta(ctx, carta):
     for dicionario in cardlist:
         if carta in dicionario["name"]:
             assets = dicionario["assets"]
-            for item in zip(range(3), assets):
+            for item in assets:
                 item = item["gameAbsolutePath"]
                 await ctx.send(item)
 
